@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "tg-bot-template"
+version = "0.1.0"
+description = ""
+authors = ["Shmonov Matvey <meology77@gmail.com>"]
+readme = "README.md"
+packages = [{include = "tg_bot_template"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aiogram = {version = "^3.0.0b8", allow-prereleases = true}
+environs = "^9.5.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
