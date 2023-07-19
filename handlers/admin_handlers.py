@@ -2,7 +2,7 @@ from aiogram import Router
 from aiogram.filters import Command, CommandStart
 from aiogram.types import Message
 
-from lexicon.lexicon_ru import LEXICON_RU
+from lexicon import lexicon_commands
 from filters.is_admin import IsAdmin
 
 
@@ -14,4 +14,4 @@ router.message.filter(IsAdmin())
 #
 # @router.message(CommandStart())
 # async def process_start_command(message: Message):
-#     await message.answer(text=LEXICON_COMMANDS_RU['/start'])
+#     await message.answer(text=lexicon_commands['ru']['/start'])
