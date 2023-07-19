@@ -1,18 +1,14 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from aiogram.utils.keyboard import ReplyKeyboardBuilder
+from aiogram import Bot
+from aiogram.types import BotCommand
+
+from lexicon.lexicon_ru import LEXICON_COMMANDS_RU
 
 
-# Инициализируем билдер
-kb_builder = ReplyKeyboardBuilder()
-
-# Создаем кнопки
-start_btn = KeyboardButton(text='/start')
-help_btn = KeyboardButton(text='/help')
-
-# Добавляем кнопки в билдер
-kb_builder.row(start_btn, help_btn, width=1)
-
-# Создаем объект клавиатуры
-keyboard: ReplyKeyboardMarkup = kb_builder.as_markup(
-                                    resize_keyboard=True,
-                                    one_time_keyboard=True)
+# Функция для настройки кнопки Menu бота
+async def set_main_menu(bot: Bot):
+    main_menu_commands = [BotCommand(
+                                command=command,
+                                description=description
+                          ) for command,
+                                description in LEXICON_COMMANDS_RU.items()]
+    await bot.set_my_commands(main_menu_commands)

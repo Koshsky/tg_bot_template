@@ -14,4 +14,4 @@ router.message.filter(IsAdmin())
 #
 # @router.message(CommandStart())
 # async def process_start_command(message: Message):
-#     await message.answer(text=LEXICON_RU['/start'])
+#     await message.answer(text=LEXICON_COMMANDS_RU['/start'])

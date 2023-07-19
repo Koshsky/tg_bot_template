@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher
 from config_data.config import Config, load_config
 from filters.is_admin import IsAdmin
 from handlers import admin_handlers, user_handlers
-
+from keyboards.set_menu import set_main_menu
 
 # Функция конфигурирования и запуска бота
 async def main() -> None:
@@ -20,6 +20,9 @@ async def main() -> None:
     # Регистриуем роутеры в диспетчере
     dp.include_router(admin_handlers.router)
     dp.include_router(user_handlers.router)
+
+    # Устанавливаем set menu
+    await set_main_menu(bot)
 
     # Пропускаем накопившиеся апдейты и запускаем polling
     await bot.delete_webhook(drop_pending_updates=True)
