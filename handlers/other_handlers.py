@@ -1,7 +1,7 @@
 from aiogram import Router
 from aiogram.types import Message
 
-from lexicon import lexicon
+from lexicon.lexicon_ru import LEXICON_RU
 from keyboards import keyboards
 
 
@@ -12,4 +12,4 @@ router: Router = Router()
 # Этот хэндлер срабатывает всегда
 @router.message()
 async def process_help_command(message: Message):
-    await message.answer(text=lexicon['ru']['other'])
+    await message.answer(text=LEXICON_RU['other'])

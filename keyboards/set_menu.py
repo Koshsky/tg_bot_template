@@ -1,7 +1,7 @@
 from aiogram import Bot
 from aiogram.types import BotCommand
 
-from lexicon import lexicon_commands
+from lexicon.lexicon_ru import LEXICON_RU
 
 # Функция для настройки кнопки Menu бота
 async def set_main_menu(bot: Bot):
@@ -9,5 +9,5 @@ async def set_main_menu(bot: Bot):
                                 command=command,
                                 description=description
                           ) for command,
-                                description in lexicon_commands['ru'].items()]
+                                description in LEXICON_RU.items() if command[0]=='/']
     await bot.set_my_commands(main_menu_commands)
