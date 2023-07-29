@@ -15,6 +15,8 @@ class TgBot:
     token: str            # Токен для доступа к телеграм-боту
     admin_ids: list[int]  # Список id администраторов бота
 
+class Redis:
+    host: str
 
 @dataclass
 class Config:
