@@ -3,6 +3,11 @@ BOT_ANSWER = {
     '/start': '',
 }
 
+BOT_COMMANDS = {
+    '/help': 'Прислать справочную информацию',
+
+}
+
 BUTTONS = {
 
 }
