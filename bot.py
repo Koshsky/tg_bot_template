@@ -7,6 +7,7 @@ from aiogram.fsm.storage.redis import RedisStorage, Redis
 from config_data.config import Config, load_config
 from handlers import admin_handlers, user_handlers, other_handlers, user_actions
 from keyboards.set_menu import set_main_menu
+from middlewares.trottling import ThrottlingMiddleware
 
 
 logger = logging.getLogger(__name__)
@@ -26,7 +27,10 @@ async def main() -> None:
                    parse_mode='HTML')
     redis: Redis = Redis(host=config.redis.host)
     storage: RedisStorage = RedisStorage(redis=redis)
+
     dp: Dispatcher = Dispatcher(storage=storage)
+
+    dp.middleware.setup(ThrottlingMiddleware())
 
     dp.include_router(user_actions.router)
     dp.include_router(admin_handlers.router)
@@ -35,7 +39,6 @@ async def main() -> None:
 
     await set_main_menu(bot)
 
-    # Пропускаем накопившиеся апдейты и запускаем polling
     await bot.delete_webhook(drop_pending_updates=True)  # УБРАТЬ, если бот работает с платежами
     await dp.start_polling(bot)
 

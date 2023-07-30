@@ -34,4 +34,5 @@ def load_config(path: str | None = '.env') -> Config:
                   db=DatabaseConfig(database=env('DATABASE'),
                                     db_host=env('DB_HOST'),
                                     db_user=env('DB_USER'),
-                                    db_password=env('DB_PASSWORD')))
+                                    db_password=env('DB_PASSWORD')),
+                  redis=Redis(host=env('REDIS_HOST')))
