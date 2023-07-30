@@ -22,7 +22,7 @@ class Redis:
 class Config:
     tg_bot: TgBot
     db: DatabaseConfig
-
+    redis: Redis
 
 def load_config(path: str | None = '.env') -> Config:
 

@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.fsm.storage.redis import RedisStorage, Redis
 
 from config_data.config import Config, load_config
-from handlers import admin_handlers, user_handlers, other_handlers
+from handlers import admin_handlers, user_handlers, other_handlers, user_actions
 from keyboards.set_menu import set_main_menu
 
 
@@ -28,6 +28,7 @@ async def main() -> None:
     storage: RedisStorage = RedisStorage(redis=redis)
     dp: Dispatcher = Dispatcher(storage=storage)
 
+    dp.include_router(user_actions.router)
     dp.include_router(admin_handlers.router)
     dp.include_router(user_handlers.router)
     dp.include_router(other_handlers.router)
