@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "tg-bot-template"
+name = "<YOUR-PROJECT-NAME>"
 version = "0.1.0"
 description = ""
 authors = ["Shmonov Matvey <meology77@gmail.com>"]
