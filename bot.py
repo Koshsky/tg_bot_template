@@ -32,10 +32,7 @@ async def main() -> None:
 
     dp.middleware.setup(ThrottlingMiddleware())
 
-    dp.include_router(user_actions.router)
-    dp.include_router(admin_handlers.router)
     dp.include_router(user_handlers.router)
-    dp.include_router(other_handlers.router)
 
     await set_main_menu(bot)
 
