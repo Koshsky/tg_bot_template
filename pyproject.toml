@@ -7,9 +7,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-aiogram = {version = "^3.0.0b8", allow-prereleases = true}
 environs = "^9.5.0"
 redis = "^4.6.0"
+aiogram = "3.0.0b7"
+aiogram-dialog = "2.0.0b20"
 
 
 [build-system]
